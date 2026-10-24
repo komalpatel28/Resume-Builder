@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Build a resume with a live preview and download it as PDF." />
+  <title>Resume Builder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Resume Builder</h1>
+    <div class="tabs" role="tablist">
+      <button id="tab-edit" class="tab active" role="tab" aria-selected="true">Edit</button>
+      <button id="tab-preview" class="tab" role="tab" aria-selected="false">Preview</button>
+    </div>
+    <div class="actions">
+      <select id="template" aria-label="Resume template">
+        <option value="canada">Canada (ATS format)</option>
+        <option value="switzerland">Switzerland (EU CV)</option>
+      </select>
+      <button id="print-btn" class="btn">Download PDF</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="editor" aria-label="Resume form">
+      <fieldset>
+        <legend>Personal</legend>
+        <label>Full name<input data-field="name" autocomplete="name" /></label>
+        <label>Job title<input data-field="title" placeholder="Frontend Developer" /></label>
+        <div class="row">
+          <label>Email<input data-field="email" type="email" autocomplete="email" /></label>
+          <label>Phone<input data-field="phone" autocomplete="tel" /></label>
+        </div>
+        <div class="row">
+          <label>Location<input data-field="location" placeholder="City, Country" /></label>
+          <label>Website / GitHub<input data-field="link" placeholder="github.com/username" /></label>
+        </div>
+        <label>Personal details <small>(shown in the Switzerland template, e.g. nationality, work permit)</small>
+          <input data-field="personal" />
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Summary</legend>
+        <label>Short profile<textarea data-field="summary" rows="4"></textarea></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Skills</legend>
+        <label>Separate with commas<textarea data-field="skills" rows="2" placeholder="HTML, CSS, JavaScript, React"></textarea></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Experience</legend>
+        <div id="list-experience"></div>
+        <button type="button" class="btn btn-ghost" data-add="experience">+ Add experience</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Projects</legend>
+        <div id="list-projects"></div>
+        <button type="button" class="btn btn-ghost" data-add="projects">+ Add project</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Education</legend>
+        <div id="list-education"></div>
+        <button type="button" class="btn btn-ghost" data-add="education">+ Add education</button>
+      </fieldset>
+
+      <button type="button" id="clear-btn" class="btn-link">Clear all data</button>
+      <p class="note">Your data is saved only in this browser.</p>
+    </section>
+
+    <section class="preview-wrap" aria-label="Resume preview">
+      <div id="preview"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
