@@ -17,7 +17,7 @@ HTML, CSS, JavaScript (no libraries)
 
 ## Live Demo
 
-https://komalpatel28.github.io/resume-builder/
+ https://komalpatel28.github.io/Resume-Builder/
 
 ## How to Run
 
